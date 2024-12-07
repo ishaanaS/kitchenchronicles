@@ -1,0 +1,159 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+    }
+
+.fridge {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: white;
+    display: flex;
+    flex-direction:column;
+    padding-top: 60px;
+    position: relative;
+}
+.color-glossary {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    border: 0.5px solid #000000;
+    padding: 15px;
+    border-radius: 5px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    z-index: 1000;
+  }
+  
+  .color-glossary h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .color-glossary ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .color-glossary li {
+    display: flex;
+    align-items: center;
+  }
+  
+  .color-swatch {
+    width: 15px;
+    height: 15px;
+    margin-right: 7px;
+    border-radius: 50%;
+  }
+  
+  .color-swatch.grey {
+    background-color: grey;
+  }
+  
+  .color-swatch.red {
+    background-color: #fd5943;
+  }
+
+  .color-swatch.green {
+    background-color:rgb(131, 255, 135) ;
+  }
+.row {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.row-content {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 200%;
+    animation-duration: 50s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.row:hover .row-content {
+    animation-play-state: paused;
+}
+
+.row-left .row-content {
+    animation-name: left;
+}
+
+.row-right .row-content {
+    animation-name: right;
+}
+
+.food-item {
+    height: 70%;
+    width: auto;
+    margin: 0 20px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+.food-item.expired:hover {
+    filter: grayscale(2.0) drop-shadow(0 0 8px rgba(39, 38, 38, 0.7));
+    transform: scale(0.85);
+    cursor: not-allowed;
+    
+}
+.food-item.fresh:hover {
+    color: rgb(131, 255, 135);
+    filter:brightness(1.0) drop-shadow(0 0 10px rgba(151, 255, 100, 0.9));
+    transform: scale(1.10);
+    
+    
+}
+.food-item.mid:hover {
+    color: #fd5943;
+    filter:brightness(1.0) drop-shadow(0 0 10px rgb(253, 89, 67));
+    transform: scale(1.05);
+    
+    
+}
+.home-button {
+    position: fixed;
+    top: 37px;
+    left: 40px;
+    padding: 8px 15px;
+    cursor: pointer;
+    border: 1px solid #000000;
+    transform: rotate(-3deg);
+    transition: transform 0.3s;
+    font-size: 16px; 
+    line-height: 1;
+    display: flex;
+    z-index: 9999;
+    color: rgb(0, 0, 0);
+    
+   
+}
+.home-button:hover {
+    transform: scale(1.10);
+    animation: tilt-shaking 0.6s infinite;
+    background-color: #14ffebcc;
+}
+   
+
+@keyframes left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+@keyframes tilt-shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+  }

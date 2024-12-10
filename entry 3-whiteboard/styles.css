@@ -1,0 +1,405 @@
+*{
+    margin: 0%;
+    padding: 0px;
+    box-sizing: border-box;     
+}
+#theCanvas {
+    height: 80vh; /* Adjust as needed */
+    width: 80vw; /* Adjust as needed */
+    background: white;
+    display: block;
+    margin: 0 auto; /* Centers the canvas horizontally */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+body {
+    background-color: black;
+    font-family: Helvetica, sans-serif;
+    margin: 0px;
+    padding: 10px;
+    overflow: auto;
+    height: 100%;
+    cursor: url('images/png thingz (Logo) (1).png'), auto;
+}
+
+.whiteboard {
+    background-color: #ffffff;
+    border: 15px solid #d0d0d0;
+    box-shadow: 0 0 0 2px #000000;
+    padding: 0;
+    margin: 20px auto;
+    height: calc(100vh - 45px);
+    width: calc(100% - 45px);
+    position: relative;
+    box-sizing: border-box;
+}
+
+.line {
+ 
+
+    color: #000000;
+    margin-bottom: 20px;
+    padding-bottom: 40px;
+    background-image: linear-gradient(to right, #000000, #000000);
+    background-size: 100% 5px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.color-buttons {
+    position: absolute;
+    top: 650px;
+    right: 20px;
+    display: flex;
+    gap: 5px;
+    z-index:100;
+  }
+  
+  .color-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .color-button[data-color="black"] { background-color: black; }
+  .color-button[data-color="red"] { background-color: red; }
+  .color-button[data-color="blue"] { background-color: blue; }
+  .color-button[data-color="green"] { background-color: green; }
+
+.home-button {
+    position: absolute;
+    top: 0.5px;
+    left: 0.5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    border: 1px solid #000000;
+    transition: transform 0.3s;
+    font-size: 16px; 
+    line-height: 1;
+    display: flex;
+    z-index: 9999;
+    color: rgb(0, 0, 0);
+    
+   
+}
+.home-button:hover {
+    transform: scale(1.10);
+    animation: tilt-shaking 0.6s infinite;
+    background-color: #14ffebcc;
+}
+  
+@keyframes left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+@keyframes tilt-shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+
+.post-it {
+    position: absolute; 
+    width: 175px; 
+    height: 175px; 
+    background-color: #fb59cd; 
+    border-radius: 5px; 
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-family: 'Comic Sans MS', cursive;
+    bottom: 20px;
+    right: 500px;
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    z-index: 999;
+    
+}
+.post-it:hover{
+
+    transform: scale(1.15);
+    filter: drop-shadow(0px 0px 10px #f4b3ff);
+}
+.post-it2 {
+    position: absolute; 
+    width: 175px; 
+    height: 175px; 
+    background-color: #ffeb3b; 
+    border-radius: 5px; 
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-family: 'Comic Sans MS', cursive;
+    bottom: 20px;
+    right: 500px;
+    transform: rotate(-8deg);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    z-index: 999;
+}
+.post-it2:hover{
+    transform: scale(1.15);
+    filter: drop-shadow(0px 0px 10px #f4b3ff);
+
+}
+.post-it3 {
+    position: absolute; 
+    width: 175px; 
+    height: 175px; 
+    background-color: #ffeb3b; 
+    border-radius: 5px; 
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-family: 'Comic Sans MS', cursive;
+    bottom: 20px;
+    right: 500px;
+    transform: rotate(4deg);
+    border-bottom-right-radius: 20px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    z-index: 999;
+}
+.post-it3:hover{
+    transform: scale(1.15);
+    filter: drop-shadow(0px 0px 10px #f4b3ff);
+}
+
+.image {
+    position: absolute;
+    left: 0; 
+    top: 32%;
+    transform: translateY(-50%);
+    transform: translateX(-42%);
+    max-width: 32%; 
+    height: auto;
+    z-index: 1; 
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    
+}
+.image:hover{
+
+    transform: translateY(-50%) scale(1.05);
+    transform: translateX(-42%) scale(1.05);
+    filter: drop-shadow(0px 0px 10px #f4b3ff);
+}
+.miffy {
+    position:relative;
+    left: 20px;
+    max-width: 270px;
+    height: auto;
+    z-index: 3;
+    top: 55%;
+    transform: rotate(-14deg);
+}
+.rockstar-cat {
+
+    position: sticky;
+    max-width: 215px;
+    height: auto;
+    z-index: 5;
+    right: 95%;
+   bottom: 63%;
+   transform: translateX(-13%) rotate(-20deg);
+
+}
+.jinx {
+
+position: absolute;
+max-width: 220px;
+height: auto;
+    z-index: 5;
+    right: 79%;
+    bottom: 70%;
+    transform: rotate(35deg);
+
+}
+.strawberry{
+
+    position:relative;
+    max-width: 220px;
+    height: auto;
+    z-index: 3;
+    top: 45%;
+    transform: translateX(-160%) rotate(14deg);
+
+}
+
+@media screen and (max-width: 768px) {
+    #theCanvas {
+      height: 80vh;
+      width: 80vw;
+    }
+  
+    .whiteboard {
+        margin: 10px auto;
+        height: calc(100vh - 20px);
+        width: calc(100% - 20px);
+        border: 10px solid #d0d0d0; 
+    }
+    .line {
+        margin-bottom: 10px;
+        padding-bottom: 20px;
+        background-size: 100% 3px; /* Reduced line thickness */
+      }
+    
+  
+    .color-buttons {
+      top: auto;
+      bottom: 20px;
+      right: 10px;
+    }
+  
+    .color-button {
+      width: 18px;
+      height: 18px;
+    }
+  
+    .home-button {
+      font-size: 8px;
+      padding: 5px 10px;
+    }
+  
+     .post-it, .post-it2, .post-it3 {
+      width: 70px;
+      height: 70px;
+    }
+
+    /* .post-it {
+        bottom: 100%;
+        right: 15px;
+      }
+    
+      .post-it2 {
+        bottom: 140px;
+        right: 15px;
+      }
+    
+      .post-it3 {
+        bottom: 15px;
+        right: 140px;
+      } */ 
+
+      .whiteboard .post-it {
+        bottom: 55px !important;
+        right: 15px !important;
+      }
+    
+      .whiteboard .post-it2 {
+        bottom: 140px !important;
+        right: 15px !important;
+      }
+    
+      .whiteboard .post-it3 {
+        bottom: 15px !important;
+        right: 140px !important;
+      }
+  
+    .image {
+      max-width: 50%;
+    }
+  
+    /* .miffy, .rockstar-cat, .jinx, .strawberry {
+      max-width: 120px;
+    } */
+    .miffy {
+        max-width: 150px;
+        left: 10px;
+        top: 65%;
+        transform: rotate(-10deg);
+      }
+    .rockstar-cat {
+        max-width: 100px;
+        /* right: auto; */
+        right: 90%;
+        bottom: 55%;
+        transform: translateX(0) rotate(-15deg);
+      }
+    
+      .jinx {
+        max-width: 130px;
+        right: auto;
+        left: 3%;
+        bottom: 80%;
+        transform: rotate(25deg);
+      }
+    
+      .strawberry {
+        max-width: 120px;
+        top: 55%;
+        right: 50%;
+        transform: translateX(-50%) rotate(10deg);
+      }
+
+  }
+/* .typewriter p {
+    padding-top: 100px;
+    font-family: "Reenie Beanie", cursive;
+    font-size: 45px;
+    overflow: hidden; 
+    border-right: .15em solid #f4b3ff; 
+    margin: 0 auto; 
+    letter-spacing: .05em; 
+    white-space: nowrap;
+    max-width: 80%;
+    z-index: 999;
+    animation: 
+      typing 7.5s steps(40, end),
+      blink-caret .55s step-end infinite;
+  }
+  ul {
+    z-index: 999;
+    margin-bottom: 15px;
+    padding-left: 20px; 
+    list-style-type: disc; 
+  }
+
+li {
+    font-family: "Reenie Beanie", cursive; 
+    padding: 5px 0; 
+   
+}
+.typewriter ul {
+    font-family: "Reenie Beanie", cursive;
+    font-size: 45px;
+    overflow: hidden; 
+    border-right: .15em solid #f4b3ff; 
+    margin: 0 auto; 
+    letter-spacing: .05em; 
+    white-space: nowrap;
+    max-width: 80%;
+    animation: 
+      typing 7.5s steps(40, end),
+      blink-caret .55s step-end infinite;
+  }
+
+
+  /* The typing effect */
+  /* @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+   */
+  /* The typewriter cursor effect */
+  /* @keyframes blink-caret {
+    from, to { border-color: transparent }
+    30% { border-color: white }
+  } */ 

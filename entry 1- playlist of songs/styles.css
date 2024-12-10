@@ -1,0 +1,209 @@
+*{
+margin:0;
+}
+
+body {
+    font-family:  Helvetica, sans-serif;
+    background-color: #000;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 60px;
+    transform-box: 20px;
+    margin-bottom: 70px;
+    text-align: center;
+    font-weight: lighter;
+    padding: 60px;
+    cursor: default;
+    animation-name: fade;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+    
+}
+h1:hover{
+    animation-play-state: paused;
+}
+
+.home-button {
+    position: fixed; 
+    top: 50px;      
+    left: 45px;    
+    padding: 8px 15px; 
+    cursor: pointer;
+    border: 1px solid #fff;
+    transform: rotate(-3deg);
+    transition: transform 0.3s;
+    font-size: 23px;
+    line-height: 1;
+    display: flex;
+   
+}
+   
+.home-button:hover {
+    transform: scale(1.10);
+    animation: tilt-shaking 0.6s infinite;
+    background-color: #14ffebcc;
+}
+    
+
+.playlist{
+    display: grid;
+    grid-template-columns: repeat(5, 8fr);
+    gap: 20px;
+}
+
+.track{
+    
+    background-color: #111;
+    padding: 15px;
+    border: 2.5px dotted #fff;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+   
+}
+.track:nth-child(odd) {
+    transform: rotate(4deg);
+}
+
+.track:nth-child(even) {
+    transform: rotate(-5deg);
+}
+.track:nth-child(3n) {
+    grid-column: span 2;
+    grid-row: span 3;
+}
+
+.track:hover {
+    transform: scale(1.10);
+    z-index: 2;
+    background-color: #ff3aaa;
+    box-shadow: 0 0 20px rgba(20, 255, 235, 0.8);
+    
+}
+
+
+.track-title {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    cursor: default;
+    
+}
+
+.artist {
+    font-style: normal;
+    font-size: 15px;
+    color: #aaa;
+    cursor: default;
+}
+
+
+.button {
+    position: absolute;
+    font-size: 10px;
+    bottom: 10px;  
+    right: 10px;  
+    width: 20px;
+    height: 20px;
+    line-height:20px;
+    text-align: center;
+    border: 0.75px solid #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    justify-content: right;
+}
+.button:hover{
+    background-color: #77ffb2;
+
+}
+@keyframes fade {
+    0%   {color: #ff3aaa;}
+    25%  {color: #fff;}
+    50%  {color: #14ffebcc;}
+    75%  {color: #77ffb2;}
+    100% {color: #ff3aaa;}
+}
+@keyframes tilt-shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+  }
+  @media screen and (max-width: 768px) {
+    body {
+      padding: 10px;
+    }
+  
+    .container {
+      width: 100%;
+    }
+  
+    h1 {
+      font-size: 30px;
+      padding: 30px;
+      margin-bottom: 40px;
+    }
+  
+    .home-button {
+      top: 20px;
+      left: 20px;
+      font-size: 10px;
+    }
+  
+    .playlist {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+  
+    .track {
+      padding: 10px;
+    }
+  
+    .track:nth-child(3n) {
+      grid-column: span 1;
+      grid-row: span 3;
+    }
+  
+    .track-title {
+      font-size: 16px;
+    }
+  
+    .artist {
+      font-size: 12px;
+    }
+  
+    .button {
+      width: 18px;
+      height: 18px;
+    }
+  }
+ 
+
+  
+  @media screen and (max-width: 480px) {
+    h1 {
+      font-size: 30px;
+      padding: 20px;
+    }
+  
+    .playlist {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+  
+    .track:nth-child(3n) {
+        grid-column: span 1;
+        grid-row: span 3;
+      }
+  }
+  

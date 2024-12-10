@@ -41,7 +41,7 @@ body {
     background-color: #2f6329;
 }
 
-.tile:nth-child(11n) {
+.tile:nth-child(9n) {
     background-color: #254f22;
 }
 
